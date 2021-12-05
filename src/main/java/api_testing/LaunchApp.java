@@ -16,6 +16,8 @@ public class LaunchApp {
         desiredCaps.setCapability(MobileCapabilityTypeEx.APP_ACTIVITY, "");
 
         //init and create an appium session client <---> appium server
+
+
         
 
 
