@@ -27,6 +27,7 @@ public class LaunchApp {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         //init and create an appium session client <---> appium server
 
 
