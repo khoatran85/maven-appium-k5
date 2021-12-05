@@ -9,5 +9,8 @@
         <module name="maven-appium-k5" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="maven-appium-k5" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

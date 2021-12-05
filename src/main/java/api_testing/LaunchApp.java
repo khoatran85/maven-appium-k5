@@ -22,7 +22,7 @@ public class LaunchApp {
         desiredCaps.setCapability(MobileCapabilityTypeEx.APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
 
             //Send the desiredCaps into appium server
-            URL appiumServer = new URL("http://127.0.0.1:4723");
+            URL appiumServer = new URL("http://127.0.0.1:4723/wd/hub");
             appiumDriver = new AndroidDriver<MobileElement>(appiumServer,desiredCaps);
         } catch (Exception e) {
             e.printStackTrace();
