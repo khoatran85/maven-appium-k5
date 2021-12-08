@@ -1,4 +1,4 @@
-package api_testing;
+package api_learning;
 
 import caps.MobileCapabilityTypeEx;
 import io.appium.java_client.AppiumDriver;
@@ -17,7 +17,7 @@ public class LaunchApp {
         DesiredCapabilities desiredCaps = new DesiredCapabilities();
         desiredCaps.setCapability(MobileCapabilityTypeEx.PLATFORM_NAME, "Android");
         desiredCaps.setCapability(MobileCapabilityTypeEx.AUTOMATION_NAME, "uiautomator2");
-        desiredCaps.setCapability(MobileCapabilityTypeEx.UDID, "ce11171beb27330301");
+        desiredCaps.setCapability(MobileCapabilityTypeEx.UDID, "emulator-5554");
         desiredCaps.setCapability(MobileCapabilityTypeEx.APP_PACKAGE, "com.wdiodemoapp");
         desiredCaps.setCapability(MobileCapabilityTypeEx.APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
 
@@ -29,11 +29,6 @@ public class LaunchApp {
         }
 
         //init and create an appium session client <---> appium server
-
-
-        
-
-
 
     }
 }
