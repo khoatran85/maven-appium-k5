@@ -8,6 +8,7 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
     private static AppiumDriverLocalService appiumServer;
@@ -51,5 +52,6 @@ public class DriverFactory {
 
         //Send the desiredCaps into appium server
         androidDriver = new AndroidDriver<MobileElement>(appiumServer.getUrl(), desiredCaps);
+        androidDriver.manage().timeouts().implicitlyWait(3l, TimeUnit.SECONDS);
     }
 }
