@@ -29,4 +29,9 @@ public class LoginFormTest {
         }
     }
 
+    @Test
+    public void print(){
+        System.out.println("hello");
+    }
+
 }
