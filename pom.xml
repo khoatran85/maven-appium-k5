@@ -7,8 +7,21 @@
     <groupId>com.sdetpro</groupId>
     <artifactId>maven-appium-k5</artifactId>
     <version>1.0-SNAPSHOT</version>
-  <dependencies>
-      <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
       <dependency>
           <groupId>io.appium</groupId>
           <artifactId>java-client</artifactId>
@@ -28,6 +41,14 @@
           <artifactId>commons-io</artifactId>
           <version>2.11.0</version>
       </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.4.0</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 </project>
