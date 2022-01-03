@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" verbose="1" >
+    <test name="Nopackage" >
+        <classes>
+            <class name="test.testNG.TestNGHooks" />
+<!--            <class name="test.testNG.TestNGHooksEx" />-->
+        </classes>
+    </test>
+
+<!--    <test name="Suite2">-->
+<!--        <classes>-->
+<!--            <class name="test.testNG.TestNGHooksEx"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>

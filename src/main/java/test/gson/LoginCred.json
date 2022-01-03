@@ -1,0 +1,16 @@
+[
+  {
+  "username": "teo",
+  "password": "12345678",
+    "job": {
+      "position": "QA"
+    }
+},
+{
+  "username": "ti",
+  "password": "87654321",
+  "job": {
+    "position": "DEV"
+  }
+}
+]
