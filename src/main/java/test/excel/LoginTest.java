@@ -14,28 +14,26 @@ import test_flows.authentication.LoginFlow;
 
 import java.util.List;
 
-public class LoginTestWithBaseTest01 extends BaseTest {
+public class LoginTest extends BaseTest {
 
 
     @Test(dataProvider = "invalidCredData")
-    public void TC03(LoginCred LoginCredData) {
+    public void TC01(LoginCred LoginCredData){
         DriverFactory.startAppiumServer();
         AppiumDriver<MobileElement> androidDriver = getAndroidDriver();
-        LoginFlow loginFlow = new LoginFlow(androidDriver, LoginCredData);
+        LoginFlow loginFlow = new LoginFlow(androidDriver,LoginCredData);
         loginFlow.login().verifyLogin();
     }
 
-    @Test
-    public void TC04() {
-        AppiumDriver<MobileElement> androidDriver = getAndroidDriver();
-        LoginPage loginPage = new LoginPage(androidDriver);
-        loginPage.bottomNavigationComp().clickOnLoginLbl();
-    }
 
 
     @DataProvider
     public LoginCred[] invalidCredData() {
-        String InvalidCredPath = "/src/main/resources/test-data/InvalidLoginCreds.json";
-        return DataObjectBuilder.buildJsonDataObject(InvalidCredPath, LoginCred[].class);
+        String validCredPath = "src/main/resources/test-data/ValidCredExcel.xlsx";
+
+        // Step 1: Read Excel File into Java List Objects
+         return ConvertExcel2Json.readExcelFile(validCredPath);
+
     }
+
 }

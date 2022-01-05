@@ -5,8 +5,20 @@ public class LoginCred {
     private String password;
     private Job job;
 
+    public LoginCred() {
+
+    }
+
     public Job getJob() {
         return job;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LoginCred(String username, String password) {

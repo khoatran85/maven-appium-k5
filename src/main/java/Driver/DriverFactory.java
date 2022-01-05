@@ -17,9 +17,9 @@ public class DriverFactory {
 
     public static void startAppiumServer() {
         AppiumServiceBuilder appiumServiceBuilder = new AppiumServiceBuilder();
-        appiumServiceBuilder.withIPAddress("127.0.0.1").usingAnyFreePort();
+//        appiumServiceBuilder.withIPAddress("127.0.0.1").usingAnyFreePort();
         appiumServiceBuilder.withArgument(AndroidServerFlagEx.ALLOW_INSECURE, "chromedriver_autodownload");
-//        appiumServiceBuilder.withIPAddress("127.0.0.1").usingPort(4723);
+        appiumServiceBuilder.withIPAddress("127.0.0.1").usingPort(4723);
         appiumServer = AppiumDriverLocalService.buildService(appiumServiceBuilder);
         appiumServer.start();
     }

@@ -22,27 +22,5 @@ public class DataObjectBuilder {
         return null;
     }
 
-//    public static <T> T buildExcelDataObject(String filePath, String sheetName) {
-//        String absoluteExcelFilePath = System.getProperty("user.dir").concat(filePath);
-//        try {
-//            FileInputStream fis = new FileInputStream(absoluteExcelFilePath);
-//            Workbook workbook = WorkbookFactory.create(fis);
-//            return workbook.getSheet(sheetName);
-//            Sheet sheet = workbook.getSheet(sheetName);
-//            for (Row row : sheet) {
-//                for (Cell cell : row) {
-//                   return (T) cell;
-//                }
-//            }
-
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-
-
-
-
 
 }

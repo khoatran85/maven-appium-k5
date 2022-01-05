@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -28,8 +29,11 @@ public class DriverFactoryEx {
             desiredCaps.setCapability(MobileCapabilityTypeEx.APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
 
             //Send the desiredCaps into appium server
-            URL appiumServer = new URL("http://127.0.0.1:4723/wd/hub");
-            appiumDriver = new AndroidDriver<>(appiumServer, desiredCaps);
+        URL appiumServer = null;
+
+            appiumServer = new URL("http://0.0.0.0:4723/wd/hub");
+
+        appiumDriver = new AndroidDriver<>(appiumServer, desiredCaps);
             appiumDriver.manage().timeouts().implicitlyWait(3l, TimeUnit.SECONDS);
         } catch (Exception e) {
             e.printStackTrace();

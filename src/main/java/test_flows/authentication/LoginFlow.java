@@ -1,6 +1,7 @@
 package test_flows.authentication;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import models.pages.LoginPage;
 import test.gson.LoginCred;
@@ -24,6 +25,7 @@ public class LoginFlow {
                 .inputUsername(loginCredData.getUsername())
                 .inputPassword(loginCredData.getPassword())
                 .clickOnLoginButton();
+        appiumDriver.findElement(MobileBy.xpath("//*[@text='OK']")).click();
         return this;
     }
 
