@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" verbose="1" >
+    <test name="Nopackage" >
+        <classes>
+            <class name="test.authentication.LoginFormTest" />
+<!--            <class name="test.authentication.LoginTestWithBaseTest01" />-->
+        </classes>
+    </test>
+
+</suite>
