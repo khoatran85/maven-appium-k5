@@ -1,6 +1,7 @@
 package test.gson;
 
 import Utils.data.DataObjectBuilder;
+import test.authentication.LoginCred;
 
 public class TestGsonUtils {
     public static void main(String[] args) {

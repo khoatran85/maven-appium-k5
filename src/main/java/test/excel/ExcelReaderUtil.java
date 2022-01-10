@@ -1,7 +1,7 @@
 package test.excel;
 
 import org.apache.poi.ss.usermodel.*;
-import test.gson.LoginCred;
+import test.authentication.LoginCred;
 
 import java.io.File;
 import java.io.FileInputStream;

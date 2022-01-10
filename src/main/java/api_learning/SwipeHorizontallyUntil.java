@@ -1,6 +1,6 @@
 package api_learning;
 
-import Driver.DriverFactory;
+import driver.DriverFactory;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;

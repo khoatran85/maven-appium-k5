@@ -1,27 +1,22 @@
 package test.authentication;
 
-import Driver.DriverFactory;
-import Utils.data.DataObjectBuilder;
+import driver.DriverFactory;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import models.pages.LoginPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTest;
 import test.excel.ConvertExcel2Json;
-import test.gson.LoginCred;
 import test_flows.authentication.LoginFlow;
-
-import java.util.List;
 
 public class LoginTest extends BaseTest {
 
 
     @Test(dataProvider = "invalidCredData")
-    public void TC01(LoginCred LoginCredData){
+    public void TC01(LoginCred loginCredData){
         DriverFactory.startAppiumServer();
         AppiumDriver<MobileElement> androidDriver = getAndroidDriver();
-        LoginFlow loginFlow = new LoginFlow(androidDriver,LoginCredData);
+        LoginFlow loginFlow = new LoginFlow(androidDriver, loginCredData);
         loginFlow.login().verifyLogin();
     }
 

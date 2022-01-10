@@ -1,6 +1,6 @@
 package api_learning;
 
-import Driver.DriverFactory;
+import driver.DriverFactory;
 import contexts.AppContexts;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

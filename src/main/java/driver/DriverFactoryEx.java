@@ -1,30 +1,32 @@
-package Driver;
+package driver;
 
 import caps.MobileCapabilityTypeEx;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 
 public class DriverFactoryEx {
-    private static AppiumDriver<MobileElement> appiumDriver;
+    private AppiumDriver<MobileElement> appiumDriver;
 
+    public AppiumDriver<MobileElement> getAndroidDriver(String udid, String systemPort) {
+        initDriver(udid,systemPort);
+        return appiumDriver;
+    }
     public AppiumDriver<MobileElement> getAndroidDriver() {
-        initDriver();
         return appiumDriver;
     }
 
-    private void initDriver() {
+    private void initDriver(String udid, String systemPort) {
         try {
             DesiredCapabilities desiredCaps = new DesiredCapabilities();
             desiredCaps.setCapability(MobileCapabilityTypeEx.PLATFORM_NAME, "android");
             desiredCaps.setCapability(MobileCapabilityTypeEx.AUTOMATION_NAME, "uiautomator2");
-            desiredCaps.setCapability(MobileCapabilityTypeEx.UDID, "emulator-5554");
+            desiredCaps.setCapability(MobileCapabilityTypeEx.UDID, udid);
+            desiredCaps.setCapability(MobileCapabilityTypeEx.SYSTEM_PORT, systemPort);
             desiredCaps.setCapability(MobileCapabilityTypeEx.APP_PACKAGE, "com.wdiodemoapp");
             desiredCaps.setCapability(MobileCapabilityTypeEx.APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
 

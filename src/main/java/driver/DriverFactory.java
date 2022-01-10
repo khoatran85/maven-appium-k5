@@ -1,4 +1,4 @@
-package Driver;
+package driver;
 
 import caps.MobileCapabilityTypeEx;
 import flags.AndroidServerFlagEx;
@@ -8,7 +8,6 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {

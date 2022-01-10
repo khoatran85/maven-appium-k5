@@ -1,11 +1,11 @@
 package test.excel;
 
-import Driver.DriverFactory;
+import driver.DriverFactory;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import test.gson.LoginCred;
+import test.authentication.LoginCred;
 
 import java.io.File;
 

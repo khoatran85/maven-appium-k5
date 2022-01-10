@@ -1,6 +1,6 @@
 package api_learning;
 
-import Driver.DriverFactory;
+import driver.DriverFactory;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -10,7 +10,6 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 
-import javax.management.Notification;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;

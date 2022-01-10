@@ -1,6 +1,7 @@
 package test.gson;
 
 import com.google.gson.Gson;
+import test.authentication.LoginCred;
 
 public class TestGson {
     public static void main(String[] args) {

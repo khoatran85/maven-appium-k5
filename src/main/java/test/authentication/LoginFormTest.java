@@ -1,15 +1,15 @@
 package test.authentication;
 
-import Driver.DriverFactory;
+import driver.DriverFactory;
 import Utils.data.DataObjectBuilder;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+
 import models.pages.LoginPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTest;
-import test.gson.LoginCred;
 import test_flows.authentication.LoginFlow;
 
 public class LoginFormTest extends BaseTest {
@@ -28,7 +28,7 @@ public class LoginFormTest extends BaseTest {
             loginPage
                     .inputUsername("teo@sth.com")
                     .inputPassword("12345678")
-                    .clickOnLoginButton();
+                    .clickOnLoginBtn();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,7 +37,7 @@ public class LoginFormTest extends BaseTest {
 
 
 //    @Test(dataProvider = "invalidCredData")
-    public void loginWithInvalidCred(LoginCred LoginCredData) {
+    public void loginWithInvalidCred(LoginCred loginCredData) {
         DriverFactory.startAppiumServer();
         AndroidDriver<MobileElement> androidDriver = DriverFactory.getAndroidDriver();
 
@@ -46,24 +46,24 @@ public class LoginFormTest extends BaseTest {
 
         //Method chaining
         loginPage
-                .inputUsername(LoginCredData.getUsername())
-                .inputPassword(LoginCredData.getPassword())
-                .clickOnLoginButton();
+                .inputUsername(loginCredData.getEmail())
+                .inputPassword(loginCredData.getPassword())
+                .clickOnLoginBtn();
     }
 
     @Test(dataProvider = "invalidCredData")
-    public void loginWithInvalidCred01(LoginCred LoginCredData){
+    public void loginWithInvalidCred01(LoginCred loginCredData){
 //        DriverFactory.startAppiumServer();
         AppiumDriver<MobileElement> androidDriver = getAndroidDriver();
-        LoginFlow loginFlow = new LoginFlow(androidDriver,LoginCredData);
+        LoginFlow loginFlow = new LoginFlow(androidDriver, loginCredData);
         loginFlow.login().verifyLogin();
     }
 
 //    @Test(dataProvider = "ValidCredData")
-    public void loginWithValidCred01(LoginCred LoginCredData){
+    public void loginWithValidCred01(LoginCred loginCredData){
 //        DriverFactory.startAppiumServer();
         AppiumDriver<MobileElement> androidDriver = getAndroidDriver();
-        LoginFlow loginFlow = new LoginFlow(androidDriver,LoginCredData);
+        LoginFlow loginFlow = new LoginFlow(androidDriver, loginCredData);
         loginFlow.login().verifyLogin();
     }
 

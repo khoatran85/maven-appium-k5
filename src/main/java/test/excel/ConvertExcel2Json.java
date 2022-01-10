@@ -3,7 +3,7 @@ package test.excel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.poi.ss.usermodel.*;
-import test.gson.LoginCred;
+import test.authentication.LoginCred;
 
 import java.io.File;
 import java.io.FileInputStream;

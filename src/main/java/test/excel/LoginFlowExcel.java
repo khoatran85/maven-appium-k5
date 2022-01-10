@@ -3,7 +3,7 @@ package test.excel;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import models.pages.LoginPage;
-import test.gson.LoginCred;
+import test.authentication.LoginCred;
 
 public class LoginFlowExcel {
     private final AppiumDriver<MobileElement> appiumDriver;
@@ -25,14 +25,14 @@ public class LoginFlowExcel {
 
         //Method chaining
         loginPage
-                .inputUsername(loginCred.getUsername())
+                .inputUsername(loginCred.getEmail())
                 .inputPassword(loginCred.getPassword())
-                .clickOnLoginButton();
+                .clickOnLoginBtn();
         return this;
     }
 
     public void verifyLogin(){
-        boolean isEmailInvalid = isEmailInvalid(loginCred.getUsername());
+        boolean isEmailInvalid = isEmailInvalid(loginCred.getEmail());
         boolean isPasswordInvalid = isPasswordInvalid(loginCred.getPassword());
     if(isEmailInvalid)
         verifyInvalidEmailFormat();

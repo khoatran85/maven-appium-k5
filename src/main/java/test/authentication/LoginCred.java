@@ -1,38 +1,41 @@
-package test.gson;
+package test.authentication;
 
 public class LoginCred {
-    private String username;
+    private String email;
     private String password;
     private Job job;
+
+    public LoginCred(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     public LoginCred() {
 
     }
 
-    public Job getJob() {
-        return job;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public LoginCred(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public Job getJob() {
+        return job;
     }
 
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
+    public void setJob(Job job) {
+        this.job = job;
     }
 
     public static class Job{
@@ -53,7 +56,7 @@ public class LoginCred {
     @Override
     public String toString() {
         return "LoginCred{" +
-                "username='" + username + '\'' +
+                "email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", job=" + job +
                 '}';
