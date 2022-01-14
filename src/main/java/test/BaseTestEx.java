@@ -89,13 +89,14 @@ public class BaseTestEx {
             }
         }
     }
-        private void deleteScreenShotFiles(String folderName){
-            String screenShotFolder = System.getProperty("user.dir").concat("/" + folderName);
-            try {
-                FileUtils.deleteDirectory(new File(screenShotFolder));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+    private void deleteScreenShotFiles(String folderName) {
+        String screenShotFolder = System.getProperty("user.dir").concat("/" + folderName);
+        try {
+            FileUtils.deleteDirectory(new File(screenShotFolder));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+}
 
