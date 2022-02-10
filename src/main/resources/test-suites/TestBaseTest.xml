@@ -1,26 +1,27 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Regression" parallel="tests" thread-count="10">
-<!--    <test name="Authentication 1" parallel="tests" thread-count="10">-->
-<!--        <parameter name="udid" value="emulator-5554"/>-->
-<!--        <parameter name="systemPort" value="8604"/>-->
-<!--        <classes>-->
-<!--            <class name="test.authentication.TestLogin"/>-->
-
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="Authentication 2" parallel="tests" thread-count="10">-->
-<!--        <parameter name="udid" value="emulator-5556"/>-->
-<!--        <parameter name="systemPort" value="8634"/>-->
-<!--        <classes>-->
-<!--            <class name="test.authentication.TestLogin"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-        <test name="Authentication 3" parallel="tests" thread-count="10">
-            <parameter name="udid" value="emulator-5558"/>
-            <parameter name="systemPort" value="8504"/>
-            <classes>
-                <class name="test.authentication.TestLogin"/>
-            </classes>
-        </test>
+    <test name="Authentication 1" parallel="tests" thread-count="10">
+        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="systemPort" value="8601"/>
+        <classes>
+            <class name="test.authentication.TestLogin"/>
+<!--            <class name="test.authentication.TestLogin1"/>-->
+        </classes>
+    </test>
+    <test name="Authentication 2" parallel="tests" thread-count="10">
+        <parameter name="udid" value="emulator-5556"/>
+        <parameter name="systemPort" value="8631"/>
+        <classes>
+            <class name="test.authentication.TestLogin"/>
+<!--            <class name="test.authentication.TestLogin1"/>-->
+        </classes>
+    </test>
+<!--        <test name="Authentication 3" parallel="tests" thread-count="10">-->
+<!--            <parameter name="udid" value="emulator-5558"/>-->
+<!--            <parameter name="systemPort" value="8504"/>-->
+<!--            <classes>-->
+<!--                <class name="test.authentication.TestLogin"/>-->
+<!--            </classes>-->
+<!--        </test>-->
 </suite>

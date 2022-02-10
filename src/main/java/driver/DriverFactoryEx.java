@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -13,9 +14,10 @@ public class DriverFactoryEx {
     private AppiumDriver<MobileElement> appiumDriver;
 
     public AppiumDriver<MobileElement> getAndroidDriver(String udid, String systemPort) {
-        initDriver(udid,systemPort);
+        initDriver(udid, systemPort);
         return appiumDriver;
     }
+
     public AppiumDriver<MobileElement> getAndroidDriver() {
         return appiumDriver;
     }
@@ -30,13 +32,14 @@ public class DriverFactoryEx {
             desiredCaps.setCapability(MobileCapabilityTypeEx.APP_PACKAGE, "com.wdiodemoapp");
             desiredCaps.setCapability(MobileCapabilityTypeEx.APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
 
-            //Send the desiredCaps into appium server
-        URL appiumServer = null;
+            URL remoteServer = new URL("http://localhost:4723/wd/hub");
+            String hub = System.getProperty("hub") != null ? System.getProperty("hub") : System.getenv("hub");
+            if (hub != null)
+                remoteServer = new URL(hub.concat(":4444/wd/hub"));
 
-            appiumServer = new URL("http://0.0.0.0:4723/wd/hub");
-
-        appiumDriver = new AndroidDriver<>(appiumServer, desiredCaps);
+            appiumDriver = new AndroidDriver<>(remoteServer, desiredCaps);
             appiumDriver.manage().timeouts().implicitlyWait(3l, TimeUnit.SECONDS);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -9,19 +9,21 @@ import org.testng.annotations.BeforeClass;
 public class BaseTest {
     private AppiumDriver<MobileElement> appiumDriver;
     private DriverFactoryEx driverFactory;
+    private String udid;
+    private String systemPort;
     @BeforeClass(alwaysRun = true)
-    public void beforeClass() {
+    public void beforeTest() {
         driverFactory = new DriverFactoryEx();
     }
 
     @AfterClass(alwaysRun = true)
-    public void afterClass() {
+    public void afterTest() {
         driverFactory.quitAppiumSession();
     }
 
     public AppiumDriver<MobileElement> getAndroidDriver() {
         if (appiumDriver == null) {
-//            appiumDriver = DriverFactoryEx.getAndroidDriver(udid);
+            appiumDriver = getAndroidDriver();
         }
         return appiumDriver;
     }

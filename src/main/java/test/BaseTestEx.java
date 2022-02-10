@@ -21,7 +21,7 @@ import java.util.*;
 
 public class BaseTestEx {
     private AppiumDriver<MobileElement> appiumDriver;
-    private DriverFactoryEx driverFactory;
+    private DriverFactoryEx driverFactoryEx;
     private final List<DriverFactoryEx> driverThreadPool = Collections.synchronizedList(new ArrayList<>());
     private ThreadLocal<DriverFactoryEx> driverThread;
     private String udid;
@@ -32,9 +32,9 @@ public class BaseTestEx {
     public void beforeTest(String udid, String systemPort) {
         this.udid = udid;
         this.systemPort = systemPort;
-        deleteScreenShotFiles("Screen Shot");
-        deleteScreenShotFiles("allure-report");
-        deleteScreenShotFiles("allure-results");
+//        deleteScreenShotFiles("Screen Shot");
+//        deleteScreenShotFiles("allure-report");
+//        deleteScreenShotFiles("allure-results");
         driverThread = ThreadLocal.withInitial(() -> {
             DriverFactoryEx driverThread = new DriverFactoryEx();
             driverThreadPool.add(driverThread);
@@ -43,20 +43,10 @@ public class BaseTestEx {
     }
 
 
-    @AfterTest(alwaysRun = true)
-    public void afterTest() {
-        driverThread.get().quitAppiumSession();
-    }
-
-    public AppiumDriver<MobileElement> getAndroidDriver() {
-        if (appiumDriver == null) {
-            appiumDriver = driverThread.get().getAndroidDriver(udid, systemPort);
-        }
-        return appiumDriver;
-    }
 
     @AfterMethod(description = "Capture screen shot on failure")
     public void afterMethod(ITestResult result) {
+
         if (result.getStatus() == ITestResult.FAILURE) {
             //1. Get test method name
             String testMethodName = result.getName();
@@ -97,6 +87,19 @@ public class BaseTestEx {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+//    @AfterTest(alwaysRun = true)
+    public void afterTest() {
+        System.out.println("start close driver");
+        driverThread.get().quitAppiumSession();
+    }
+
+    public AppiumDriver<MobileElement> getAndroidDriver() {
+        if (appiumDriver == null) {
+            appiumDriver = driverThread.get().getAndroidDriver(udid, systemPort);
+        }
+        return appiumDriver;
     }
 }
 
