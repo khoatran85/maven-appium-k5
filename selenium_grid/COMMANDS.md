@@ -5,8 +5,7 @@ java -jar selenium-server-standalone-3.141.59.jar -role hub
 
 ## Start HUB | Custom caps Matcher | MacOS
 ```
-java -cp selenium-server-standalone-3.141.59.jar:selenium-grid-custom-matcher-3.141.59.jar org.openqa.grid.selenium.GridLauncherV3 -role hub -hubConfig hubConfig.json
-```
+java -cp selenium_grid/selenium-server-standalone-3.141.59.jar:selenium_grid/selenium-grid-custom-matcher-3.141.59.jar org.openqa.grid.selenium.GridLauncherV3 -role hub -hubConfig selenium_grid/hubConfig.json```
 
 ## Start HUB | Custom caps Matcher | Windows
 ```

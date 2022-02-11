@@ -1,18 +1,21 @@
 package models.pages;
 
-import driver.DriverFactory;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.touch.offset.PointOption;
 import models.components.global.BottomNavigationComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class LoginPage {
@@ -24,16 +27,27 @@ public class LoginPage {
     private static final By inputPasswordWarningSel = MobileBy.xpath("//*[@text='Please enter at least 8 characters']");
 
     private static final By loginSuccessPopupSel = MobileBy.xpath("//*[@text='Success']");
-    private static final By loginSuccessOKBtnSel = MobileBy.xpath("//*[@text='OK']");
+//    private static final By loginSuccessOKBtnSel = MobileBy.xpath("//*[@text='OK']");
+
+    @AndroidFindBy(id = "android:id/alertTitle")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Success'")
+    private MobileElement msgTitleElem;
+
+    @AndroidFindBy(id = "android:id/button1")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'OK'")
+    private MobileElement loginSuccessOKBtnElem;
+
 
     public LoginPage(AppiumDriver<MobileElement> appiumDriver) {
         this.appiumDriver = appiumDriver;
+        PageFactory.initElements(new AppiumFieldDecorator(appiumDriver, Duration.ofSeconds(10)),this);
     }
 
     public void waitForElementVisibility(By by){
         WebDriverWait wait = new WebDriverWait(appiumDriver, 5L);
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
+
     public LoginPage inputUsername(String username){
         appiumDriver.findElement(usernameSel).sendKeys(username);
         return this;
@@ -68,8 +82,10 @@ public class LoginPage {
 
     public void clickOnLoginSuccessOKBtn(){
         WebDriverWait wait = new WebDriverWait(appiumDriver, 3L);
-        wait.until(ExpectedConditions.presenceOfElementLocated(loginSuccessOKBtnSel));
-        appiumDriver.findElement(loginSuccessOKBtnSel).click();
+//        wait.until(ExpectedConditions.presenceOfElementLocated(loginSuccessOKBtnSel));
+//        appiumDriver.findElement(loginSuccessOKBtnSel).click();
+        wait.until(ExpectedConditions.visibilityOf(loginSuccessOKBtnElem));
+        loginSuccessOKBtnElem.click();
     }
 
     public void swipeToLoginBtn(){
@@ -109,6 +125,9 @@ public class LoginPage {
             throw new RuntimeException("Button not found!");
         }
 
+    }
 
+    public String loginMsgText(){
+        return msgTitleElem.getText();
     }
 }

@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import org.testng.annotations.Optional;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,14 +25,19 @@ public class BaseTestEx {
     private DriverFactoryEx driverFactoryEx;
     private final List<DriverFactoryEx> driverThreadPool = Collections.synchronizedList(new ArrayList<>());
     private ThreadLocal<DriverFactoryEx> driverThread;
+
     private String udid;
     private String systemPort;
+    private String platformName;
+    private String platformVersion;
 
     @BeforeTest(alwaysRun = true, description = "Init all Appium sessions")
-    @Parameters({"udid", "systemPort"})
-    public void beforeTest(String udid, String systemPort) {
+    @Parameters({"udid", "systemPort", "platformName", "platformVersion"})
+    public void beforeTest(String udid, String systemPort, String platformName, @Optional("platformVersion") String platformVersion) {
         this.udid = udid;
         this.systemPort = systemPort;
+        this.platformName = platformName;
+        this.platformVersion = platformVersion;
 //        deleteScreenShotFiles("Screen Shot");
 //        deleteScreenShotFiles("allure-report");
 //        deleteScreenShotFiles("allure-results");
@@ -44,7 +50,7 @@ public class BaseTestEx {
 
 
 
-    @AfterMethod(description = "Capture screen shot on failure")
+///    @AfterMethod(description = "Capture screen shot on failure")
     public void afterMethod(ITestResult result) {
 
         if (result.getStatus() == ITestResult.FAILURE) {
@@ -89,15 +95,18 @@ public class BaseTestEx {
         }
     }
 
-//    @AfterTest(alwaysRun = true)
+    @AfterTest(alwaysRun = true)
     public void afterTest() {
         System.out.println("start close driver");
         driverThread.get().quitAppiumSession();
     }
 
-    public AppiumDriver<MobileElement> getAndroidDriver() {
+    protected AppiumDriver<MobileElement> getAndroidDriver() {
         if (appiumDriver == null) {
-            appiumDriver = driverThread.get().getAndroidDriver(udid, systemPort);
+            appiumDriver = driverThread.get().getAndroidDriver(udid, systemPort, platformName, platformVersion);
+        }
+        if(appiumDriver == null){
+            throw new RuntimeException("[ERR] Can't establish a connection to test ");
         }
         return appiumDriver;
     }

@@ -7,5 +7,7 @@ public interface MobileCapabilityTypeEx extends MobileCapabilityType {
     String APP_PACKAGE = "appPackage";
     String APP_ACTIVITY = "appActivity";
     String SYSTEM_PORT = "systemPort";
+    String WDA_LOCAL_PORT = "wdaLocalPort";
+    String BUNDLE_ID = "bundleId";
 
 }
