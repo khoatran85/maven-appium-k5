@@ -49,11 +49,13 @@ public class LoginPage {
     }
 
     public LoginPage inputUsername(String username){
+        appiumDriver.findElement(usernameSel).clear();
         appiumDriver.findElement(usernameSel).sendKeys(username);
         return this;
     }
 
     public LoginPage inputPassword(String password){
+        appiumDriver.findElement(passwordSel).clear();
         appiumDriver.findElement(passwordSel).sendKeys(password);
         return this;
     }
