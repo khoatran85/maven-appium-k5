@@ -1,10 +1,8 @@
 package test.authentication;
 
 import Utils.data.DataObjectBuilder;
-import driver.DriverFactoryEx;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTestEx;

@@ -1,4 +1,4 @@
-/*
+
 package test.authentication;
 
 import driver.DriverFactory;
@@ -36,4 +36,4 @@ public class LoginTestWithBaseTest02 extends BaseTestEx {
     }
 
 }
-*/
+

@@ -4,9 +4,12 @@
     <test name="Authentication 1" parallel="tests" thread-count="10">
         <parameter name="platformName" value="android"/>
         <parameter name="udid" value="emulator-5554"/>
-        <parameter name="systemPort" value="8605"/>
+        <parameter name="systemPort" value="8601"/>
         <classes>
-            <class name="test.authentication.LoginTestWithBaseTest01"/>
+<!--            <class name="test.authentication.LoginTestWithBaseTest01"/>-->
+<!--            <class name="test.authentication.LoginTestWithBaseTest02"/>-->
+            <class name="test3.testA"/>
+            <class name="test3.testB"/>
         </classes>
     </test>
 

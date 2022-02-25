@@ -61,7 +61,6 @@ public class DriverFactoryEx {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void quitAppiumSession() {

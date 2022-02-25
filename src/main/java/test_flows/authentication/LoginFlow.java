@@ -1,5 +1,6 @@
 package test_flows.authentication;
 
+import driver.PlatformType;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import models.pages.LoginPage;
@@ -21,6 +22,10 @@ public class LoginFlow {
     public LoginFlow login() {
         LoginPage loginPage = new LoginPage(appiumDriver);
         loginPage.bottomNavigationComp().clickOnLoginLbl();
+
+        String platformName = System.getProperty("platform");
+        System.out.println(PlatformType.valueOf(platformName));
+
         loginPage.inputUsername(loginData.getEmail())
                 .inputPassword(loginData.getPassword())
                 .clickOnLoginBtn();

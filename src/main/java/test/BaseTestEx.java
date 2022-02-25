@@ -9,7 +9,6 @@ import org.openqa.selenium.OutputType;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.annotations.Optional;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +16,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Calendar;
-
 import java.util.*;
 
 public class BaseTestEx {
@@ -38,6 +36,10 @@ public class BaseTestEx {
         this.systemPort = systemPort;
         this.platformName = platformName;
         this.platformVersion = platformVersion;
+        System.out.println(udid);
+        System.out.println(systemPort);
+        System.out.println(platformName);
+        System.out.println(platformVersion);
 //        deleteScreenShotFiles("Screen Shot");
 //        deleteScreenShotFiles("allure-report");
 //        deleteScreenShotFiles("allure-results");
@@ -102,6 +104,7 @@ public class BaseTestEx {
     }
 
     protected AppiumDriver<MobileElement> getAndroidDriver() {
+
         if (appiumDriver == null) {
             appiumDriver = driverThread.get().getAndroidDriver(udid, systemPort, platformName, platformVersion);
         }
